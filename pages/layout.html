@@ -6,13 +6,13 @@
     <meta id="language" data-language="{{ language }}" />
     <meta id="page" data-page="{{ page }}" />
     <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-    {% if loggedIn %} {{ assets_for('menu') | safe }} {% endif %}
+    <%- assetFor('menu') %>
     <script>
-      window.lang = {{ lang | safe}};
+      window.lang = "{{ lang | safe }}";
 
       window.user = {
-        first: 'Jason',
-        email: 'foo@bar.com'
+        first: "Jason",
+        email: "foo@bar.com",
       };
     </script>
   </head>
@@ -35,9 +35,7 @@
       id="menu"
     ></header>
 
-    <main id="app" class="mt-7 mx-8" role="main">
-      {{ assets_for(page)|safe }}
-    </main>
+    <main id="app" class="mt-7 mx-8" role="main"><%- assetFor(page) %></main>
 
     <footer class="pt-5 pb-5 footer print:hidden">here is the footer</footer>
   </body>

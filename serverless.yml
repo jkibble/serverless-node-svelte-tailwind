@@ -1,14 +1,14 @@
 service: svelte-project
-frameworkVersion: '2 || 3'
+frameworkVersion: "2 || 3"
 
 provider:
   name: aws
-  runtime: python3.9
-  lambdaHashingVersion: '20201221'
+  runtime: nodejs14.x
+  stage: dev
+  lambdaHashingVersion: "20201221"
 
 plugins:
   - serverless-offline
-  - serverless-python-requirements
 functions:
   - ${file(./services/index/routes.yml)}
 
