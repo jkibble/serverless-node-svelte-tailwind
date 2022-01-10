@@ -2,18 +2,18 @@
   import "/src/style.css";
   import Switch from "/src/lib/input/switch.svelte";
 
-  let shown = false;
-  let isDarkMode = false;
+  let isShown = false;
 
-  const isDarkSet = localStorage.theme === "dark";
-  const isThemeStored = "theme" in localStorage;
+  let isDarkMode = localStorage.isDark;
   const isDarkPrefered = window.matchMedia(
     "(prefers-color-scheme: dark)"
   ).matches;
 
-  $: if (isDarkMode || (!isThemeStored && isDarkPrefered)) {
+  $: if (isDarkMode || (isDarkPrefered && !localStorage.isDark)) {
+    localStorage.setItem("isDark", true);
     document.querySelector("html").classList.add("dark");
   } else {
+    localStorage.removeItem("isDark");
     document.querySelector("html").classList.remove("dark");
   }
 </script>
@@ -50,7 +50,7 @@
     <!-- language selector -->
     <div class="dropdown inline-block relative bg-inherit">
       <button
-        on:click={() => (shown = !shown)}
+        on:click={() => (isShown = !isShown)}
         class="text-grey-700 font-semibold py-2 px-4 rounded inline-flex items-center"
       >
         <span class="mr-1">Language</span>
@@ -69,7 +69,7 @@
           />
         </svg>
       </button>
-      {#if shown}
+      {#if isShown}
         <ul class="dropdown-menu absolute bg-inherit">
           <li>
             <a class="block py-2 px-4 rounded-t" href="/language/en">English</a>

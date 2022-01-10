@@ -1,3 +1,4 @@
+const LoremIpsum = require("lorem-ipsum").LoremIpsum;
 const fs = require("fs");
 const ejs = require("ejs");
 const mime = require("mime-types");
@@ -54,5 +55,33 @@ module.exports.static = async (event, context) => {
     statusCode: 200,
     body: body,
     headers: { "content-type": type },
+  };
+};
+
+module.exports.table = async (event, context) => {
+  const lorem = new LoremIpsum({
+    sentencesPerParagraph: {
+      max: 8,
+      min: 4,
+    },
+    wordsPerSentence: {
+      max: 16,
+      min: 4,
+    },
+  });
+
+  let result = { header: [], body: [] };
+
+  for (let x = 0; x < 9; x++) {
+    result["header"].push(lorem.generateWords(1));
+    result["body"].push([]);
+    for (let y = 0; y < 9; y++) {
+      result["body"][x].push(lorem.generateWords(1));
+    }
+  }
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify(result),
   };
 };

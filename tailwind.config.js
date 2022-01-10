@@ -10,6 +10,10 @@ module.exports = {
         gray: {},
 
         grey: colors["gray"],
+        ocean: {
+          100: "#0065C4",
+          200: "#0075C4",
+        },
       },
     },
   },

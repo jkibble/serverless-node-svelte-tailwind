@@ -1,18 +1,11 @@
 <script>
-  import Editor from '/src/lib/Editor.svelte'
-  import Counter from '/src/lib/Counter.svelte'
-  import { _ } from '/src/lib/i18n.js'
+  import Editor from "/src/lib/Editor.svelte";
+  import Counter from "/src/lib/Counter.svelte";
 
-  console.log(window.user)
+  console.log(window.user);
 </script>
 
-<h3 class="font-bold mb-5">
-  { $_('title') }
-</h3>
-
-<div class="mb-5">
-  {@html $_('subtitle') }
-</div>
+<h3 class="font-bold mb-5">Welcome to the three page</h3>
 
 <Counter />
 

@@ -19,7 +19,7 @@
   select,
   select[multiple],
   textarea {
-    @apply block w-full rounded-md shadow-sm text-base h-10 pl-2 pr-2 mb-3 border border-indigo-400 bg-white dark:bg-slate-700;
+    @apply block w-full rounded-md shadow-sm text-base h-10 pl-2 pr-2 mb-3 border border-ocean-100 bg-white dark:bg-slate-700;
   }
 
   input[type="checkbox"],
@@ -46,7 +46,7 @@ body {
 }
 
 .btn {
-  @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+  @apply bg-ocean-100 hover:bg-ocean-200 text-white font-bold py-2 px-4 rounded;
 }
 
 .required:after {
