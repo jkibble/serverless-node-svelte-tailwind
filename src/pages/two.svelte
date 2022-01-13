@@ -15,7 +15,7 @@
     </label>
     <label>
       <span>Input (email, multiple)</span>
-      <input type="email" multiple="" placeholder="john@example.com" />
+      <input type="email" placeholder="john@example.com" />
     </label>
     <label>
       <span>Input (password)</span>
@@ -53,11 +53,11 @@
   <div class="grid grid-cols-1 gap-6">
     <label>
       <span>Input (tel)</span>
-      <input type="tel" multiple="" placeholder="john@example.com" />
+      <input type="tel" placeholder="john@example.com" />
     </label>
     <label>
       <span>Input (url)</span>
-      <input type="url" multiple="" placeholder="john@example.com" />
+      <input type="url" placeholder="john@example.com" />
     </label>
     <label>
       <span>Select</span>
@@ -68,7 +68,7 @@
     </label>
     <label>
       <span>Select (multiple)</span>
-      <select multiple="true">
+      <select multiple="1">
         <option>Option 1</option>
         <option>Option 2</option>
         <option>Option 3</option>
@@ -85,7 +85,7 @@
       <div>
         <div>
           <label>
-            <input type="checkbox" checked="" />
+            <input type="checkbox" />
             <span>Option 1</span>
           </label>
         </div>
@@ -108,7 +108,7 @@
       <div>
         <div>
           <label>
-            <input type="radio" checked="" name="radio-direct" value="1" />
+            <input type="radio" name="radio-direct" value="1" />
             <span>Option 1</span>
           </label>
         </div>

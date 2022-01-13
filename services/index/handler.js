@@ -3,6 +3,7 @@ const fs = require("fs");
 const ejs = require("ejs");
 const mime = require("mime-types");
 const path = require("path");
+const jwt = require("jsonwebtoken");
 
 const assetFor = (path) => {
   let imports = "";
@@ -83,5 +84,25 @@ module.exports.table = async (event, context) => {
   return {
     statusCode: 200,
     body: JSON.stringify(result),
+  };
+};
+
+module.exports.post = async (event, context) => {
+  let form = new URLSearchParams(event["body"]);
+
+  console.log(form);
+};
+
+module.exports.login = async (event, context) => {
+  let form = new URLSearchParams(event["body"]);
+  console.log(form);
+  let token = jwt.sign({ foo: "bar" }, "shhhhh");
+
+  return {
+    statusCode: 303,
+    headers: {
+      Location: "/",
+      "Set-Cookie": `token=${token}; HttpOnly; Path=/`,
+    },
   };
 };

@@ -6,22 +6,21 @@ import virtual from "@rollup/plugin-virtual";
 
 let resolvers = [];
 
-entries = glob
-  .sync(path.resolve(__dirname, "src", "pages/*.svelte"))
+let entries = glob
+  .sync(path.resolve("src", "pages/*.svelte"))
   .map((file) => {
     return file
-      .replace(__dirname + "/src/pages/", "")
       .replace(/^/, `\0`)
       .replace(".svelte", ""); // prefix with \0 so vite knows it's virtual
   });
 
 entries.forEach((file) => {
-  entry = file.replace(`\0`, "");
+  let entry = file.replace(`\0`, "");
 
-  target = entry === "menu" ? "menu" : "app";
+  let target = entry === "menu" ? "menu" : "app";
 
   resolvers[file] = `
-    import App from '/src/pages/${entry}.svelte'
+    import App from '${entry}.svelte'
 
     const app = new App({
       target: document.getElementById('${target}')
@@ -35,7 +34,7 @@ entries.forEach((file) => {
 export default defineConfig({
   plugins: [svelte(), virtual(resolvers)],
   build: {
-    outDir: path.join(__dirname, "public"),
+    outDir: path.join("public"),
     manifest: true,
     rollupOptions: {
       input: entries,
