@@ -96,7 +96,7 @@ module.exports.post = async (event, context) => {
 module.exports.login = async (event, context) => {
   let form = new URLSearchParams(event["body"]);
   console.log(form);
-  let token = jwt.sign({ foo: "bar" }, "shhhhh");
+  let token = jwt.sign({ foo: "bar" }, "key");
 
   return {
     statusCode: 303,

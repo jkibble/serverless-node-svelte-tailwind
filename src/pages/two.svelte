@@ -68,7 +68,7 @@
     </label>
     <label>
       <span>Select (multiple)</span>
-      <select multiple="1">
+      <select multiple={true}>
         <option>Option 1</option>
         <option>Option 2</option>
         <option>Option 3</option>
