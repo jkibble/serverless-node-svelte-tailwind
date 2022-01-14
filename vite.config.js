@@ -6,13 +6,12 @@ import virtual from "@rollup/plugin-virtual";
 
 let resolvers = [];
 
-let entries = glob
-  .sync(path.resolve("src", "pages/*.svelte"))
-  .map((file) => {
-    return file
-      .replace(/^/, `\0`)
-      .replace(".svelte", ""); // prefix with \0 so vite knows it's virtual
-  });
+let entries = glob.sync(path.resolve("src", "pages/*.svelte")).map((file) => {
+  return file
+    .replace(path.join(path.resolve(), "src/pages/"), "")
+    .replace(/^/, `\0`)
+    .replace(".svelte", ""); // prefix with \0 so vite knows it's virtual
+});
 
 entries.forEach((file) => {
   let entry = file.replace(`\0`, "");
@@ -20,7 +19,7 @@ entries.forEach((file) => {
   let target = entry === "menu" ? "menu" : "app";
 
   resolvers[file] = `
-    import App from '${entry}.svelte'
+    import App from '/src/pages/${entry}.svelte'
 
     const app = new App({
       target: document.getElementById('${target}')
