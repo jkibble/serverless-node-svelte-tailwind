@@ -1,5 +1,5 @@
 <script>
-  import { _, store } from "/lib/i18n";
+  import { _, store } from "/src/lib/i18n";
 </script>
 
 <h1>Translations play ground</h1>

@@ -1,6 +1,6 @@
 <script>
-  import "/style.css";
-  import Switch from "/lib/input/switch.svelte";
+  import "/src/style.css";
+  import Switch from "/src/lib/input/switch.svelte";
 
   let isShown = false;
 

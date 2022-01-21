@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 const assetFor = (path: string): string => {
   let imports = "";
 
-  let manifest = fs.readFileSync("public/manifest.json");
+  let manifest = fs.readFileSync("frontend/public/manifest.json");
   let data = JSON.parse(manifest);
 
   if (data[`virtual:${path}`]) {
@@ -73,7 +73,7 @@ module.exports.api = async (event, context) => {
 module.exports.static = async (event, context) => {
   let file = event["pathParameters"]["path"];
   let type = mime.contentType(path.basename(file));
-  let body = fs.readFileSync(`public/${file}`, "utf-8");
+  let body = fs.readFileSync(`frontend/public/${file}`, "utf-8");
 
   return {
     statusCode: 200,

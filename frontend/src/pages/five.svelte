@@ -11,13 +11,16 @@
     },
   });
 
-  import Blog from "/lib/Post.svelte";
+  import Blog from "/src/lib/Post.svelte";
 </script>
 
 <h2>Responsive Blog Posts</h2>
 
 <div class="grid gap-3 xl:grid-cols-2 sm:grid-cols-1">
   {#each Array(5) as i}
-    <Blog title={lorem.generateSentences(1)} article={lorem.generateParagraphs(3).split('\n')} />
+    <Blog
+      title={lorem.generateSentences(1)}
+      article={lorem.generateParagraphs(3).split("\n")}
+    />
   {/each}
 </div>
