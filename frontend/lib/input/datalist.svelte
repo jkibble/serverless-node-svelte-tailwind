@@ -1,5 +1,5 @@
 <script>
-  import Text from "/src/lib/input/text.svelte";
+  import Text from "/lib/input/text.svelte";
   export let options = [];
   let id;
 </script>

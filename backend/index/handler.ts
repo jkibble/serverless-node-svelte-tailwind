@@ -5,7 +5,7 @@ const mime = require("mime-types");
 const path = require("path");
 const jwt = require("jsonwebtoken");
 
-const assetFor = (path) => {
+const assetFor = (path: string): string => {
   let imports = "";
 
   let manifest = fs.readFileSync("public/manifest.json");
@@ -28,15 +28,38 @@ const assetFor = (path) => {
   return imports;
 };
 
+module.exports.locales = async (event, context) => {
+  let locale = event["pathParameters"]["locale"];
+  let namespace = event["pathParameters"]["namespace"];
+  let body = fs.readFileSync(`locales/${locale}/${namespace}.json`, "utf-8");
+
+  return {
+    statusCode: 200,
+    body: body,
+    headers: { "content-type": "application/json" },
+  };
+};
+
 module.exports.api = async (event, context) => {
   let page = "index";
+  let cookies = {};
+
   if (event["pathParameters"]["path"]) {
     page = event["pathParameters"]["path"];
   }
 
+  if (event["cookies"]) {
+    event["cookies"].forEach((cookie) => {
+      let foo = new URLSearchParams(cookie);
+      cookies = { ...cookies, ...Object.fromEntries(foo) };
+    });
+  }
+
+  let user = jwt.verify(cookies.token, "key");
+
   let body = await ejs.renderFile(
     "pages/layout.html",
-    { assetFor: assetFor, page: page },
+    { assetFor: assetFor, page: page, user: JSON.stringify(user) },
     { async: true }
   );
 
@@ -96,7 +119,7 @@ module.exports.post = async (event, context) => {
 module.exports.login = async (event, context) => {
   let form = new URLSearchParams(event["body"]);
   console.log(form);
-  let token = jwt.sign({ foo: "bar" }, "key");
+  let token = jwt.sign({ email: form.get("email") }, "key");
 
   return {
     statusCode: 303,

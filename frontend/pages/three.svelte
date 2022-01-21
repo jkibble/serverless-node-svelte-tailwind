@@ -1,6 +1,6 @@
 <script>
-  import Editor from "lib/Editor.svelte";
-  import Counter from "lib/Counter.svelte";
+  import Editor from "/lib/Editor.svelte";
+  import Counter from "/lib/Counter.svelte";
 </script>
 
 <h3 class="font-bold mb-5">Welcome to the three page</h3>

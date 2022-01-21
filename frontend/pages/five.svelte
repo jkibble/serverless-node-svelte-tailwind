@@ -11,7 +11,7 @@
     },
   });
 
-  import Blog from "/src/lib/Post.svelte";
+  import Blog from "/lib/Post.svelte";
 </script>
 
 <h2>Responsive Blog Posts</h2>

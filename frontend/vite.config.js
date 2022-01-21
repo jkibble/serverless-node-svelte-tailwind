@@ -7,9 +7,9 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 let resolvers = [];
 
-let entries = glob.sync(path.resolve("src", "pages/*.svelte")).map((file) => {
+let entries = glob.sync(path.resolve("pages/*.svelte")).map((file) => {
   return file
-    .replace(path.join(path.resolve(), "src/pages/"), "")
+    .replace(path.join(path.resolve(), "/pages/"), "")
     .replace(/^/, `\0`) // prefix with \0 so vite knows it's virtual
     .replace(".svelte", "");
 });
@@ -20,7 +20,7 @@ entries.forEach((file) => {
   let target = entry === "menu" ? "menu" : "app";
 
   resolvers[file] = `
-    import App from '/src/pages/${entry}.svelte'
+    import App from '/pages/${entry}.svelte'
 
     const app = new App({
       target: document.getElementById('${target}')
@@ -34,7 +34,7 @@ entries.forEach((file) => {
 export default defineConfig({
   plugins: [svelte(), virtual(resolvers), tsconfigPaths()],
   build: {
-    outDir: path.join("public"),
+    outDir: path.join("./public"),
     manifest: true,
     rollupOptions: {
       input: entries,

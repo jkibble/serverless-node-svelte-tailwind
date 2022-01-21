@@ -1,8 +1,8 @@
 <script>
-  import Counter from "lib/Counter.svelte";
-  import Editor from "lib/Editor.svelte";
-  import Table from "lib/Table.svelte";
-  import Timer from "lib/Timer.svelte";
+  import Counter from "/lib/Counter.svelte";
+  import Editor from "/lib/Editor.svelte";
+  import Table from "/lib/Table.svelte";
+  import Timer from "/lib/Timer.svelte";
 
   const options = [
     { name: "Counter", component: Counter },

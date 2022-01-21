@@ -10,10 +10,7 @@
     <script>
       window.lang = "{{ lang | safe }}";
 
-      window.user = {
-        first: "Jason",
-        email: "foo@bar.com",
-      };
+      window.user = <%- user %>;
     </script>
   </head>
   <body
@@ -21,17 +18,7 @@
   >
     <header
       role="navigation"
-      class="
-        max-w-screen
-        mx-auto
-        sticky
-        top-0
-        z-50
-        bg-gray-200/60
-        dark:bg-gray-700/60
-        backdrop-blur
-        print:hidden
-      "
+      class="max-w-screen mx-auto sticky top-0 z-50 bg-gray-200/60 dark:bg-gray-700/60 backdrop-blur print:hidden"
       id="menu"
     ></header>
 

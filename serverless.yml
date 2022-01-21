@@ -9,8 +9,9 @@ provider:
 
 plugins:
   - serverless-offline
+  - serverless-plugin-typescript
 functions:
-  - ${file(./services/index/routes.yml)}
+  - ${file(./backend/index/routes.yml)}
 
 custom:
   serverless-offline:

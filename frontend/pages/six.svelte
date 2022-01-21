@@ -1,10 +1,10 @@
 <script>
-  import Email from "/src/lib/input/email.svelte";
-  import Checkbox from "/src/lib/input/checkbox.svelte";
-  import Password from "/src/lib/input/password.svelte";
-  import Search from "/src/lib/input/search.svelte";
-  import Date from "/src/lib/input/date.svelte";
-  import Datalist from "/src/lib/input/datalist.svelte";
+  import Email from "/lib/input/email.svelte";
+  import Checkbox from "/lib/input/checkbox.svelte";
+  import Password from "/lib/input/password.svelte";
+  import Search from "/lib/input/search.svelte";
+  import Date from "/lib/input/date.svelte";
+  import Datalist from "/lib/input/datalist.svelte";
 
   const options = [
     { id: "au", value: "Australia" },

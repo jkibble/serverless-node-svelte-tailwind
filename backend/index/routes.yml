@@ -1,40 +1,40 @@
 static:
-  handler: services/index/handler.static
+  handler: backend/index/handler.static
   events:
     - httpApi:
         path: /static/{path+}
         method: get
 
-language:
-  handler: services/index/handler.language
+locales:
+  handler: backend/index/handler.locales
   events:
     - httpApi:
-        path: /language/{page}/{lang}.json
+        path: /locales/{locale}/{namespace}.json
         method: get
 
 post:
-  handler: services/index/handler.post
+  handler: backend/index/handler.post
   events:
     - httpApi:
         path: /post
         method: post
 
 login:
-  handler: services/index/handler.login
+  handler: backend/index/handler.login
   events:
     - httpApi:
         path: /login
         method: post
 
 table:
-  handler: services/index/handler.table
+  handler: backend/index/handler.table
   events:
     - httpApi:
         path: /table
         method: get
 
 api:
-  handler: services/index/handler.api
+  handler: backend/index/handler.api
   events:
     - httpApi:
         path: /{path+}

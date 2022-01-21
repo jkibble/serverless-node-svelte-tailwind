@@ -1,7 +1,7 @@
 <script>
-  import Countdown from '/src/lib/Countdown.svelte'
-  import Table from '/src/lib/Table.svelte'
-  import Text from '/src/lib/input/text.svelte'
+  import Countdown from '/lib/Countdown.svelte'
+  import Table from '/lib/Table.svelte'
+  import Text from '/lib/input/text.svelte'
 
   const url = 'https://baconipsum.com/api/?type=meat-and-filler&paras=10&start-with-lorem=1';
   let words = [];
