@@ -3,17 +3,16 @@
   import Switch from "/src/lib/input/switch.svelte";
 
   let isShown = false;
+  let isDarkMode =
+    localStorage.theme === "dark" ||
+    (window.matchMedia("(prefers-color-scheme: dark)").matches &&
+      !localStorage.theme);
 
-  let isDarkMode = localStorage.isDark;
-  const isDarkPrefered = window.matchMedia(
-    "(prefers-color-scheme: dark)"
-  ).matches;
-
-  $: if (isDarkMode || (isDarkPrefered && !localStorage.isDark)) {
-    localStorage.setItem("isDark", true);
+  $: if (isDarkMode) {
+    localStorage.setItem("theme", "dark");
     document.querySelector("html").classList.add("dark");
   } else {
-    localStorage.removeItem("isDark");
+    localStorage.setItem("theme", "light");
     document.querySelector("html").classList.remove("dark");
   }
 </script>
@@ -41,6 +40,7 @@
         <a href="/four">App Four</a>
         <a href="/five">App Five</a>
         <a href="/six">App Six</a>
+        <a href="/seven">App Seven</a>
       </div>
     </div>
     <!-- secondary nav -->

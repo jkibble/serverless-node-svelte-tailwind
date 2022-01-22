@@ -25,7 +25,9 @@
 
   <h3>{selected.name}</h3>
 
-  <svelte:component this={selected.component} />
+  <div class="mt-5 shadow-md dark:shadow-gray-400">
+    <svelte:component this={selected.component} />
+  </div>
 </div>
 
 <svelte:head>

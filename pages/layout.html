@@ -8,6 +8,20 @@
     <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
     <%- assetFor('menu') %>
     <script>
+      let isDarkMode =
+        localStorage.theme === "dark" ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches &&
+          !localStorage.theme);
+
+      if (isDarkMode) {
+        localStorage.setItem("theme", "dark");
+        document.querySelector("html").classList.add("dark");
+      } else {
+        localStorage.setItem("theme", "light");
+        document.querySelector("html").classList.remove("dark");
+      }
+    </script>
+    <script>
       window.lang = "{{ lang | safe }}";
 
       window.user = <%- user %>;
