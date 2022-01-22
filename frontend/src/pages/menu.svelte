@@ -3,10 +3,7 @@
   import Switch from "/src/lib/input/switch.svelte";
 
   let isShown = false;
-  let isDarkMode =
-    localStorage.theme === "dark" ||
-    (window.matchMedia("(prefers-color-scheme: dark)").matches &&
-      !localStorage.theme);
+  let isDarkMode = localStorage.theme === "dark";
 
   $: if (isDarkMode) {
     localStorage.setItem("theme", "dark");
