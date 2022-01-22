@@ -34,7 +34,7 @@ entries.forEach((file) => {
 export default defineConfig({
   plugins: [svelte(), virtual(resolvers), tsconfigPaths()],
   build: {
-    outDir: path.join("./public"),
+    outDir: path.join("./dist"),
     manifest: true,
     rollupOptions: {
       input: entries,
