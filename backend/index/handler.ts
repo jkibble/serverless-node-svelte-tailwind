@@ -28,6 +28,19 @@ const assetFor = (path: string): string => {
   return imports;
 };
 
+const getCookies = (event) => {
+  let cookies = {};
+
+  if (event["cookies"]) {
+    event["cookies"].forEach((cookie) => {
+      let foo = new URLSearchParams(cookie);
+      cookies = { ...cookies, ...Object.fromEntries(foo) };
+    });
+  }
+
+  return cookies;
+};
+
 module.exports.locales = async (event, context) => {
   let locale = event["pathParameters"]["locale"];
   let namespace = event["pathParameters"]["namespace"];
@@ -42,24 +55,19 @@ module.exports.locales = async (event, context) => {
 
 module.exports.api = async (event, context) => {
   let page = "index";
-  let cookies = {};
+  let cookies = getCookies(event);
 
   if (event["pathParameters"]["path"]) {
     page = event["pathParameters"]["path"];
   }
 
-  if (event["cookies"]) {
-    event["cookies"].forEach((cookie) => {
-      let foo = new URLSearchParams(cookie);
-      cookies = { ...cookies, ...Object.fromEntries(foo) };
-    });
-  }
-
-  let user = jwt.verify(cookies.token, "key");
+  const user = jwt.verify(cookies.token, "key");
+  const locale = user.locale || "en";
+  const lang = fs.readFileSync(`locales/${locale}/translation.json`, "utf-8");
 
   let body = await ejs.renderFile(
     "pages/layout.html",
-    { assetFor: assetFor, page: page, user: JSON.stringify(user) },
+    { assetFor: assetFor, page: page, user: JSON.stringify(user), lang: lang },
     { async: true }
   );
 
@@ -69,6 +77,24 @@ module.exports.api = async (event, context) => {
     headers: { "content-type": "text/html" },
   };
 };
+
+module.exports.language = async (event, context) => {
+  let locale = event["pathParameters"]["locale"];
+  const cookies = getCookies(event);
+  const foo = jwt.verify(cookies.token, "key");
+
+  foo.locale = locale;
+  const token = jwt.sign(foo, "key");
+
+  return {
+    statusCode: 303,
+    body: '',
+    headers: { 
+      "location": "/",       
+      "Set-Cookie": `token=${token}; HttpOnly; Path=/`,
+    },
+  };
+}
 
 module.exports.static = async (event, context) => {
   let file = event["pathParameters"]["path"];
@@ -118,7 +144,6 @@ module.exports.post = async (event, context) => {
 
 module.exports.login = async (event, context) => {
   let form = new URLSearchParams(event["body"]);
-  console.log(form);
   let token = jwt.sign({ email: form.get("email") }, "key");
 
   return {

@@ -12,6 +12,13 @@ locales:
         path: /locales/{locale}/{namespace}.json
         method: get
 
+language:
+  handler: backend/index/handler.language
+  events:
+    - httpApi:
+        path: /language/{locale}
+        method: get
+
 post:
   handler: backend/index/handler.post
   events:

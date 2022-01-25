@@ -1,0 +1,5 @@
+{
+  "foo": "es here we are {name}",
+  "placeholder": "es input placeholder",
+  "some ready long text like a paragraph for {name}, age: {age}": "es some ready long text like a paragraph for {name}, age: {age}"
+}

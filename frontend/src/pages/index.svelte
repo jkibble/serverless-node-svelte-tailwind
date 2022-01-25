@@ -1,18 +1,19 @@
 <script>
-  import { _, store } from "/src/lib/i18n";
+  // @ts-ignore
+  import { t } from "/src/lib/i18n";
 </script>
 
 <h1>Translations play ground</h1>
 
 <h3>
-  {$store.t("foo", { name: window.user.email })}
+  {t("foo")}
 </h3>
 
-<input type="text" name="" id="" placeholder={$store.t("placeholder")} />
+<input type="text" name="" id="" placeholder={t("placeholder")} />
 
 <p>
-  {$store.t("some ready long text like a paragraph for {name}, age: {age}", {
-    name: window.user.email,
+  {t("some ready long text like a paragraph for {name}, age: {age}", {
+    name: "John",
     age: "25",
   })}
 </p>
