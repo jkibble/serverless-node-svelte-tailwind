@@ -67,6 +67,8 @@ module.exports.api = async (event, context) => {
 
   if (fs.existsSync(`locales/${locale}/${page}.json`)) {
     lang = fs.readFileSync(`locales/${locale}/${page}.json`, "utf-8");
+  } else if (fs.existsSync(`locales/en/${page}.json`)) {
+    lang = fs.readFileSync(`locales/en/${page}.json`, "utf-8");
   }
 
   let body = await ejs.renderFile(
@@ -94,7 +96,7 @@ module.exports.language = async (event, context) => {
     statusCode: 303,
     body: '',
     headers: { 
-      "location": "/",       
+      "location": event['headers']['Referer'] || "/",       
       "Set-Cookie": `token=${token}; HttpOnly; Path=/`,
     },
   };
