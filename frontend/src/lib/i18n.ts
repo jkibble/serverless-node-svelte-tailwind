@@ -1,9 +1,11 @@
 const trans = (key, ...args) => {
   const lang = window.lang;
 
-  console.log(args);
+  if (lang[key]) {
+    return lang[key].replace(/{(\w+)}/g, args);
+  }
 
-  return lang[key].replace(/{(\w+)}/g, args);
+  return key;
 };
 
 export { trans as t };
