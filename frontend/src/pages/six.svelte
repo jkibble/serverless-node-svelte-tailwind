@@ -5,6 +5,7 @@
   import Search from "/src/lib/input/search.svelte";
   import Date from "/src/lib/input/date.svelte";
   import Datalist from "/src/lib/input/datalist.svelte";
+  import { t } from "/src/lib/i18n";
 
   const options = [
     { id: "au", value: "Australia" },
@@ -34,12 +35,12 @@
     bind:this={form}
     on:submit={() => form.checkValitity()}
   >
-    <Email label="Email" name="email" required="true" />
-    <Checkbox label="Checkbox" name="checkbox" />
-    <Password label="Password" name="password" required="true" />
-    <Search label="Search (not required)" name="search" />
-    <Date label="Date" name="date" required="true" />
-    <Datalist {options} label="Datalist" required="true" />
+    <Email label={t("Email")} name="email" required="true" />
+    <Checkbox label={t("Checkbox")} name="checkbox" />
+    <Password label={t("Password")} name="password" required="true" />
+    <Search label={t("Search (not required)")} name="search" />
+    <Date label={t("Date")} name="date" required="true" />
+    <Datalist {options} label={t("Datalist")} required="true" />
     <input type="submit" class="btn" value="send" />
   </form>
 </div>
