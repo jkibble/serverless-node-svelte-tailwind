@@ -56,6 +56,7 @@ module.exports.locales = async (event, context) => {
 module.exports.api = async (event, context) => {
   let page = "index";
   let cookies = getCookies(event);
+  let lang = JSON.stringify({});
 
   if (event["pathParameters"]["path"]) {
     page = event["pathParameters"]["path"];
@@ -63,7 +64,10 @@ module.exports.api = async (event, context) => {
 
   const user = jwt.verify(cookies.token, "key");
   const locale = user.locale || "en";
-  const lang = fs.readFileSync(`locales/${locale}/translation.json`, "utf-8");
+
+  if (fs.existsSync(`locales/${locale}/${page}.json`)) {
+    lang = fs.readFileSync(`locales/${locale}/${page}.json`, "utf-8");
+  }
 
   let body = await ejs.renderFile(
     "pages/layout.html",

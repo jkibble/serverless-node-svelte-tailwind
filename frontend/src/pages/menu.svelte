@@ -42,6 +42,7 @@
         <a href="/five">App Five</a>
         <a href="/six">App Six</a>
         <a href="/seven">App Seven</a>
+        <a href="/eight">App Eight</a>
       </div>
     </div>
     <!-- secondary nav -->
