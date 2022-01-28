@@ -29,6 +29,23 @@ Learn as much as much can about all the technologies while playing around with n
 - Everything in a monorepo to make local development easier
 - moar...
 
+### Accessibility Guidelines
+
+[Web Accessibility Guidelines](http://web-accessibility.carnegiemuseums.org/)
+
+- Consistent styling through out all elements, colour (contrast), layout and accessibility
+- Alt tags on images
+- Links which open in a new tab links should avoided but if used should indicate they are new tabs
+- Anchor tags are only used for new page navigation (GET, POST) otherwise actions are done with buttons, tabs, ajax etc
+- Semantic html
+- prefers-reduced-motion should be respected
+- Dyslexia and Accessibility best practices say:
+  - Make text left-aligned (not fully justified)
+  - Use a sans-serif font
+  - Limited use of **bold**, _italic_ <u>underlines</u>
+  - Use 1.5 line spacing
+  - Site does not interfere with user's ability to customize text color, size or font
+
 ### Broken Shit
 
 - [ ] Tailwind **@apply** with things like `dark` don't work in components. Postcss needs to run first before svelte compiler
