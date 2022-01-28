@@ -16,12 +16,15 @@
       class="px-4 py-2 font-semibold rounded-t opacity-50 
         {selected === tab ? 'border-b-4 border-blue-400' : ''}"
     >
-      <a role="tab" href="#{tab.route}">{tab.label}</a>
+      <button role="tab" data-href="#{tab.route}">{tab.label}</button>
     </li>
   {/each}
 </ul>
 
 <!-- Tab Contents -->
-<div class="border border-gray-500 overflow-x-auto h-full p-5 rounded-md">
+<div
+  aria-live="polite"
+  class="border border-gray-500 overflow-x-auto h-full p-4 rounded-md"
+>
   <svelte:component this={selected.component} {...selected.params} />
 </div>

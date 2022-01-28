@@ -36,7 +36,7 @@ class Router {
   mount(routes): void {
     onMount(() => {
       routes.forEach((href) => {
-        const link = document.querySelector(`a[href="#${href.route}"]`);
+        const link = document.querySelector(`button[data-href="#${href.route}"]`);
 
         if (link) {
           link.addEventListener("click", (e) => {

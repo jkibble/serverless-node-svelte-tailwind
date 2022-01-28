@@ -38,6 +38,7 @@ Learn as much as much can about all the technologies while playing around with n
 - Links which open in a new tab links should avoided but if used should indicate they are new tabs
 - Anchor tags are only used for new page navigation (GET, POST) otherwise actions are done with buttons, tabs, ajax etc
 - Semantic html
+- All form controls must have a label
 - prefers-reduced-motion should be respected
 - Dyslexia and Accessibility best practices say:
   - Make text left-aligned (not fully justified)
