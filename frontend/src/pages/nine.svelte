@@ -1,6 +1,4 @@
 <script>
-  import router from "src/lib/router";
-
   import Email from "src/lib/input/email.svelte";
   import Checkbox from "src/lib/input/checkbox.svelte";
   import Password from "src/lib/input/password.svelte";
@@ -23,28 +21,13 @@
       component: Text,
     },
   ];
-
-  // router.addRoutes(routes);
-  // router.defaultRoute();
-  // router.start();
-
-  $: selected = $router.selectedRoute;
 </script>
 
-<h2><a href="/nine">Simple router test</a></h2>
-<h3>And also tabs + router</h3>
-<!-- {#each $router.routeList as route}
-  <div>
-    <a href="#{route.route}">{route.route} test</a>
-  </div>
-{/each}
+<svelte:head>
+  <title>Tabs and Router Test</title>
+</svelte:head>
 
-<div class="w-1/3 pt-5">
-  {#if Object.keys(selected).length > 0}
-    <h4>{selected.route}</h4>
-    <svelte:component this={selected.component} {...selected.params} />
-  {/if}
-</div> -->
+<h2><a href="/nine">Tabs + router test</a></h2>
 
 <div class="w-1/2 pt-5">
   <Tabs tabs={routes} />

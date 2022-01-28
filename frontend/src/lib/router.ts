@@ -55,7 +55,7 @@ class Router {
   }
 
   changeRoute(route): void {
-    window.history.pushState({}, `${route}`, `/nine/#${route}`);
+    window.history.pushState({}, `${route}`, `${document.location.pathname}#${route}`);
     this.selectedRoute = this.routeList.find((r) => r.route === route);
     this._store.set(this);
   }
