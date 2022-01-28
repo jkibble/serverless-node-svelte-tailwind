@@ -16,7 +16,7 @@
 
 Learn as much as much can about all the technologies while playing around with new concepts
 
-### Design considerations
+### Design considerations, subject to changes
 
 - Accessability considerations.Aria-\* features and best practices implemented
 - Keyboard accessible
@@ -25,4 +25,6 @@ Learn as much as much can about all the technologies while playing around with n
 - Complete i18n (i10n?) support
 - Use as many high quality 3rd party libraries as appropriate
 - DX is paramount therefore everything has to be as low friction and intuitive to use
+- Reactive down to mobile
+- Everything in a monorepo to make local development easier
 - moar...
