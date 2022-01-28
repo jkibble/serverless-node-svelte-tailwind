@@ -28,3 +28,9 @@ Learn as much as much can about all the technologies while playing around with n
 - Reactive down to mobile
 - Everything in a monorepo to make local development easier
 - moar...
+
+### Broken Shit
+
+- [ ] Tailwind **@apply** with things like `dark` don't work in components. Postcss needs to run first before svelte compiler
+- [ ] all kinds of other things
+- [ ] i18n doesn't really work
