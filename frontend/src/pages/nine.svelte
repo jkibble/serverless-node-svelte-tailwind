@@ -30,6 +30,7 @@
 </script>
 
 <h2><a href="/nine">Simple router test</a></h2>
+<h3>And also tabs + router</h3>
 <!-- {#each $router.routeList as route}
   <div>
     <a href="#{route.route}">{route.route} test</a>
