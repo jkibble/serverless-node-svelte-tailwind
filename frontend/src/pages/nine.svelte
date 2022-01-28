@@ -5,6 +5,7 @@
   import Checkbox from "src/lib/input/checkbox.svelte";
   import Password from "src/lib/input/password.svelte";
   import Search from "src/lib/input/search.svelte";
+  import Table from "src/lib/Table.svelte";
   import Text from "/../playground/text.svelte";
 
   import Tabs from "src/lib/tabs.svelte";
@@ -14,6 +15,7 @@
     { route: "Checkbox", label: "Checkbox", component: Checkbox },
     { route: "Password", label: "Password test", component: Password },
     { route: "Search", label: "Search box", component: Search },
+    { route: "Table", label: "Table", component: Table },
     {
       route: "Text",
       label: "Playground text",

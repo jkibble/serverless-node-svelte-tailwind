@@ -49,11 +49,13 @@ class Router {
   }
 
   defaultRoute(): void {
-    this.changeRoute(this.routeList[0].route);
+    if (!window.location.hash) {
+      this.changeRoute(this.routeList[0].route);
+    }
   }
 
   changeRoute(route): void {
-    window.history.pushState({}, `${route}`, `/nine#${route}`);
+    window.history.pushState({}, `${route}`, `/nine/#${route}`);
     this.selectedRoute = this.routeList.find((r) => r.route === route);
     this._store.set(this);
   }
