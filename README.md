@@ -1,4 +1,4 @@
-# AWS Lambda (Node) + Svelte + Vite + Tailwind CSS + ES6 + TypeScript
+# AWS Lambda (Node) + serverless framework + Svelte + Tailwind CSS + ES6 + TypeScript
 
 ## Recommended IDE Setup
 
