@@ -1,11 +1,22 @@
-const trans = (key, ...args) => {
-  const lang = window.lang;
+const buildTranslator = () => {
+  const page: string = document.getElementById("page").getAttribute("data-page");
+  const locale: string = document.getElementById("language").getAttribute("data-language");
 
-  if (lang[key]) {
-    return lang[key].replace(/{(\w+)}/g, args);
+  let cache = {};
+
+  return async (key: string, ...args: any) => {
+    if (!(key in cache)) {
+      await fetch(`/locales/${locale}/${page}.json`)
+      .then((res) => {
+        return res.json()
+      }).then((trans: object) => {
+        console.log('here again')
+        cache = Object.assign(cache, trans);
+      });
+    }
+
+    return cache[key] || key;
   }
+}
 
-  return key;
-};
-
-export { trans as t };
+export default buildTranslator();

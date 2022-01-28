@@ -44,7 +44,19 @@ const getCookies = (event) => {
 module.exports.locales = async (event, context) => {
   let locale = event["pathParameters"]["locale"];
   let namespace = event["pathParameters"]["namespace"];
-  let body = fs.readFileSync(`locales/${locale}/${namespace}.json`, "utf-8");
+  let body = {};
+
+  if (fs.existsSync(`locales/${locale}/${namespace}.json`)) {
+    body = fs.readFileSync(`locales/${locale}/${namespace}.json`, "utf-8");
+  } else if (fs.existsSync(`locales/en/${namespace}.json`)) {
+    body = fs.readFileSync(`locales/en/${namespace}.json`, "utf-8");
+  } else {
+    return {
+      statusCode: 404,
+      body: JSON.stringify({ error: "Not found" }),
+      headers: { "content-type": "application/json" },
+    };
+  }
 
   return {
     statusCode: 200,
@@ -73,7 +85,7 @@ module.exports.api = async (event, context) => {
 
   let body = await ejs.renderFile(
     "pages/layout.html",
-    { assetFor: assetFor, page: page, user: JSON.stringify(user), lang: lang },
+    { assetFor, page, lang, locale, user: JSON.stringify(user) },
     { async: true }
   );
 

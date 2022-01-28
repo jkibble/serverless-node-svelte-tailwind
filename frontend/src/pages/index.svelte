@@ -1,22 +1,21 @@
 <script>
-  // @ts-ignore
-  import { t } from "/src/lib/i18n";
+  import I18n from "src/lib/i18n.svelte";
 </script>
 
 <h1>Translations play ground</h1>
 
 <h3>
-  {t("foo")}
+  <I18n key="foo" />
 </h3>
 
-<input type="text" name="" id="" placeholder={t("placeholder")} />
+<input type="text" name="" id="" placeholder="" />
 
 <p>
-  {t("some ready long text like a paragraph for {name}, age: {age}", {
-    name: "John",
-    age: "25",
-  })}
+  <I18n key="foo" />
 </p>
+
+<h4>here is the email thing we're gonna try</h4>
+<I18n key="foo" />
 
 <style>
   h3,
