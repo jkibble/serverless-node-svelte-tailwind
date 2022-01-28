@@ -18,8 +18,9 @@ Learn as much as much can about all the technologies while playing around with n
 
 ### Design considerations
 
-- Full accessability considerations. All aria-\* features and best practices implemented
-- A complete dark mode colour scheme
+- Accessability considerations.Aria-\* features and best practices implemented
+- Keyboard accessible
+- Complete dark mode colour scheme
 - Svelte / Tailwind Components for anything non-trivial
 - Complete i18n (i10n?) support
 - Use as many high quality 3rd party libraries as appropriate
