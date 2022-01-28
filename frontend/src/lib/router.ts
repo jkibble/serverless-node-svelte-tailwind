@@ -6,14 +6,18 @@ class Router {
   selectedRoute: object = {};
   _store = writable(this); // allows subscribing to router changes
 
-  addRoutes(routes: any): void {
+  addRoutes(routes: any): any {
     this.routeList = [...this.routeList, ...routes];
     this._store.set(this);
+
+    return this.routeList;
   }
   
-  addRoute(route: any): void {
+  addRoute(route: any): any {
     this.routeList.push(route);
     this._store.set(this);
+
+    return this.routeList;
   }
 
   subscribe(callback: any): object {
@@ -42,6 +46,10 @@ class Router {
         }
       });
     });
+  }
+
+  defaultRoute(): void {
+    this.changeRoute(this.routeList[0].route);
   }
 
   changeRoute(route): void {
