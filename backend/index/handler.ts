@@ -114,18 +114,6 @@ module.exports.language = async (event, context) => {
   };
 }
 
-module.exports.static = async (event, context) => {
-  let file = event["pathParameters"]["path"];
-  let type = mime.contentType(path.basename(file));
-  let body = fs.readFileSync(`frontend/dist/${file}`, "utf-8");
-
-  return {
-    statusCode: 200,
-    body: body,
-    headers: { "content-type": type },
-  };
-};
-
 module.exports.table = async (event, context) => {
   const lorem = new LoremIpsum({
     sentencesPerParagraph: {
@@ -158,17 +146,4 @@ module.exports.post = async (event, context) => {
   let form = new URLSearchParams(event["body"]);
 
   console.log(form);
-};
-
-module.exports.login = async (event, context) => {
-  let form = new URLSearchParams(event["body"]);
-  let token = jwt.sign({ email: form.get("email") }, "key");
-
-  return {
-    statusCode: 303,
-    headers: {
-      Location: "/",
-      "Set-Cookie": `token=${token}; HttpOnly; Path=/`,
-    },
-  };
 };

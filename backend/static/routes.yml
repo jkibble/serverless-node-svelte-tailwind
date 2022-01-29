@@ -1,0 +1,5 @@
+handler: backend/static/handler.static
+events:
+  - httpApi:
+      path: /static/{path+}
+      method: get

@@ -12,6 +12,8 @@ plugins:
   - serverless-plugin-typescript
 functions:
   - ${file(./backend/index/routes.yml)}
+  - static: ${file(./backend/static/routes.yml)}
+  - login: ${file(./backend/login/routes.yml)}
 
 custom:
   serverless-offline:

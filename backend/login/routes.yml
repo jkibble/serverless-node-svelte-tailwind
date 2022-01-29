@@ -1,0 +1,5 @@
+handler: backend/index/handler.login
+events:
+  - httpApi:
+      path: /login
+      method: post
