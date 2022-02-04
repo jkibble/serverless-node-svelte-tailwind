@@ -39,7 +39,7 @@
       on:drop|preventDefault={(event) => drop(event, index)}
       on:dragenter={() => (hovering = index)}
       on:dragover|preventDefault={() => false}
-      class="mt-2 p-2 border border-1 border-gray-400 rounded-lg text-center bg-indigo-400"
+      class="border-1 mt-2 rounded-lg border border-gray-400 bg-indigo-400 p-2 text-center"
       class:is-active={hovering === index}
     >
       {item}

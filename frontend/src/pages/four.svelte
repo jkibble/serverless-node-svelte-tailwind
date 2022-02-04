@@ -14,8 +14,8 @@
   let selected = options[0];
 </script>
 
-<div class="lg:w-1/2 md:w-full">
-  <h3 class="font-bold mb-5">Component selector</h3>
+<div class="md:w-full lg:w-1/2">
+  <h3 class="mb-5 font-bold">Component selector</h3>
 
   <select bind:value={selected}>
     {#each options as option}

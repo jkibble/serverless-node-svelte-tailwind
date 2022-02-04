@@ -23,10 +23,10 @@
   {...$$restProps}
 />
 {#if !isValid}
-  <div class="text-xs flex gap-2 align-bottom">
+  <div class="flex gap-2 align-bottom text-xs">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      class="h-5 w-5 text-red-700 dark:bg-slate-100 rounded-full"
+      class="h-5 w-5 rounded-full text-red-700 dark:bg-slate-100"
       viewBox="0 0 20 20"
       fill="currentColor"
     >

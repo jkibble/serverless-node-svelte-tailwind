@@ -20,7 +20,7 @@
     on:click={() => (open = !open)}
     aria-expanded={open}
     aria-haspopup="listbox"
-    class="relative z-0 w-full text-left transition duration-150 ease-in-out bg-white rounded-md cursor-default focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+    class="focus:shadow-outline-blue relative z-0 w-full cursor-default rounded-md bg-white text-left transition duration-150 ease-in-out focus:border-blue-300 focus:outline-none sm:text-sm sm:leading-5"
   >
     <input
       x-ref="search"
@@ -32,14 +32,14 @@
       on:keydown={handleKeydown}
       bind:value={searchTerm}
       type="text"
-      class="w-full h-full focus:outline-none"
+      class="h-full w-full focus:outline-none"
     />
 
     <span
-      class="absolute inset-y-0 right-0 -top-3 flex items-center pr-2 pointer-events-none"
+      class="pointer-events-none absolute inset-y-0 right-0 -top-3 flex items-center pr-2"
     >
       <svg
-        class="w-5 h-5 text-gray-400"
+        class="h-5 w-5 text-gray-400"
         viewBox="0 0 20 20"
         fill="none"
         stroke="currentColor"
@@ -61,7 +61,7 @@
       x-transition:leave-start="opacity-100"
       x-transition:leave-end="opacity-0"
       x-cloak
-      class="absolute z-10 w-full bg-white rounded-md shadow-lg"
+      class="absolute z-10 w-full rounded-md bg-white shadow-lg"
     >
       <ul
         x-ref="listbox"
@@ -71,16 +71,16 @@
         role="listbox"
         :aria-activedescendant="focusedOptionIndex ? name + 'Option' + focusedOptionIndex : null"
         tabindex="-1"
-        class="overflow-auto text-base leading-6 rounded-md shadow-xs max-h-60 focus:outline-none sm:text-sm sm:leading-5"
+        class="shadow-xs max-h-60 overflow-auto rounded-md text-base leading-6 focus:outline-none sm:text-sm sm:leading-5"
       >
         {#each filteredList as item}
           <li
-            class="relative py-2 pl-3 text-gray-900 cursor-default select-none pr-9 hover:bg-indigo-300 hover:text-white"
+            class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 hover:bg-indigo-300 hover:text-white"
           >
             <span
               x-text="Object.values(options)[index]"
               :class="( 'font-semibold': index === focusedOptionIndex, 'font-normal': index !== focusedOptionIndex )"
-              class="block font-normal truncate"
+              class="block truncate font-normal"
             >
               {item.value}
             </span>
@@ -89,7 +89,7 @@
               :class="( 'text-white': index === focusedOptionIndex, 'text-indigo-600': index !== focusedOptionIndex )"
               class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600"
             >
-              <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path
                   fill-rule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -103,7 +103,7 @@
           <div
             x-show="! Object.keys(options).length"
             x-text="emptyOptionsMessage"
-            class="px-3 py-2 text-gray-900 cursor-default select-none"
+            class="cursor-default select-none px-3 py-2 text-gray-900"
           >
             No Results
           </div>

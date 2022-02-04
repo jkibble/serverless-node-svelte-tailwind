@@ -1,14 +1,14 @@
 <script>
   export let title;
-  export let article
+  export let article;
 </script>
 
 <article>
-  <h4>{ title }</h4>
+  <h4>{title}</h4>
   {#each article as paragraph}
-  <p>
-    { paragraph }
-  </p>
+    <p>
+      {paragraph}
+    </p>
   {/each}
 </article>
 
@@ -22,6 +22,6 @@
   }
 
   article {
-    @apply bg-slate-400 p-5 rounded-lg;
+    @apply rounded-lg bg-slate-400 p-5;
   }
 </style>

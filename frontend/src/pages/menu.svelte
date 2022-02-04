@@ -15,7 +15,7 @@
 </script>
 
 <nav class="bg-inherit">
-  <div class="flex justify-between items-center p-1 bg-inherit">
+  <div class="flex items-center justify-between bg-inherit p-1">
     <!-- logo -->
     <div class="flex items-center">
       <a href="/" class="mr-3">
@@ -51,10 +51,10 @@
       <Switch label="Dark Mode" bind:toggle={isDarkMode} />
     </div>
     <!-- language selector -->
-    <div class="dropdown inline-block relative bg-inherit">
+    <div class="dropdown relative inline-block bg-inherit">
       <button
         on:click={() => (isShown = !isShown)}
-        class="text-grey-700 font-semibold py-2 px-4 rounded inline-flex items-center"
+        class="text-grey-700 inline-flex items-center rounded py-2 px-4 font-semibold"
       >
         <span class="mr-1">Language</span>
         <svg
@@ -75,13 +75,13 @@
       {#if isShown}
         <ul class="dropdown-menu absolute bg-inherit">
           <li>
-            <a class="block py-2 px-4 rounded-t" href="/language/en">English</a>
+            <a class="block rounded-t py-2 px-4" href="/language/en">English</a>
           </li>
           <li>
             <a class="block py-2 px-4" href="/language/fr">French</a>
           </li>
           <li>
-            <a class="block py-2 px-4 rounded-b" href="/language/es">Spanish</a>
+            <a class="block rounded-b py-2 px-4" href="/language/es">Spanish</a>
           </li>
         </ul>
       {/if}
@@ -92,7 +92,7 @@
 
 <style>
   a:hover {
-    @apply bg-blue-400 rounded;
+    @apply rounded bg-blue-400;
   }
 
   a {

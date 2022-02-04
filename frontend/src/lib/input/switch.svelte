@@ -3,20 +3,20 @@
   export let toggle = false;
 </script>
 
-<label class="flex justify-between items-center p-2 relative">
+<label class="relative flex items-center justify-between p-2">
   {label}
   <input
     type="checkbox"
-    class="peer invisible absolute left-0 top-0 w-full h-full rounded-md"
+    class="peer invisible absolute left-0 top-0 h-full w-full rounded-md"
     bind:checked={toggle}
   />
   <span
-    class="w-12 h-7 flex items-center flex-shrink-0 ml-4 p-1 bg-gray-300 rounded-full after:w-5
+    class="ml-4 flex h-7 w-12 flex-shrink-0 items-center rounded-full bg-gray-300 p-1 duration-300
+    ease-in-out 
     after:h-5 
-    after:bg-white 
-    after:rounded-full 
-    after:shadow-md
-    peer-checked:bg-green-400 duration-300 ease-in-out after:duration-300
+    after:w-5 
+    after:rounded-full
+    after:bg-white after:shadow-md after:duration-300 peer-checked:bg-green-400
     peer-checked:after:translate-x-5
     "
   />

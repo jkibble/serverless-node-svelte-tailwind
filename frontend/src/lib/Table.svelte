@@ -31,7 +31,7 @@
     {#each $data.body as row}
       <tr>
         {#each row as cell}
-          <td class="px-6 py-4 whitespace-nowrap">{cell}</td>
+          <td class="whitespace-nowrap px-6 py-4">{cell}</td>
         {/each}
       </tr>
     {/each}

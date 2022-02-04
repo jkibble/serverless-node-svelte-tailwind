@@ -12,7 +12,7 @@ class Router {
 
     return this.routeList;
   }
-  
+
   addRoute(route: any): any {
     this.routeList.push(route);
     this._store.set(this);
@@ -36,7 +36,9 @@ class Router {
   mount(routes): void {
     onMount(() => {
       routes.forEach((href) => {
-        const link = document.querySelector(`button[data-href="#${href.route}"]`);
+        const link = document.querySelector(
+          `button[data-href="#${href.route}"]`
+        );
 
         if (link) {
           link.addEventListener("click", (e) => {
@@ -55,10 +57,14 @@ class Router {
   }
 
   changeRoute(route): void {
-    window.history.pushState({}, `${route}`, `${document.location.pathname}#${route}`);
+    window.history.pushState(
+      {},
+      `${route}`,
+      `${document.location.pathname}#${route}`
+    );
     this.selectedRoute = this.routeList.find((r) => r.route === route);
     this._store.set(this);
   }
 }
 
-export default new Router;
+export default new Router();

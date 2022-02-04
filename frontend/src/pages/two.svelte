@@ -3,7 +3,7 @@
 </svelte:head>
 
 <h3>Tailwind CSS Form test page</h3>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+<div class="grid grid-cols-1 items-start gap-6 md:grid-cols-2">
   <div class="grid grid-cols-1 gap-6">
     <label>
       <span>Input (text)</span>

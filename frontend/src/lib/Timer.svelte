@@ -1,9 +1,9 @@
 <script>
   export const delay = 2000;
 
-  let counter = 0
-  setInterval(function() {
-    counter++
+  let counter = 0;
+  setInterval(function () {
+    counter++;
   }, delay);
 </script>
 

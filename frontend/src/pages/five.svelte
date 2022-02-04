@@ -16,7 +16,7 @@
 
 <h2>Responsive Blog Posts</h2>
 
-<div class="grid gap-3 xl:grid-cols-2 sm:grid-cols-1">
+<div class="grid gap-3 sm:grid-cols-1 xl:grid-cols-2">
   {#each Array(5) as i}
     <Blog
       title={lorem.generateSentences(1)}

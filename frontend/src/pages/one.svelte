@@ -42,9 +42,9 @@
 </script>
 
 <p
-  class="h-24 first-line:uppercase first-line:tracking-widest
-first-letter:text-7xl first-letter:font-bold first-letter:text-grey-900
-first-letter:mr-3 first-letter:float-left"
+  class="first-letter:text-grey-900 m-4 h-24
+first-letter:float-left first-letter:mr-3 first-letter:text-7xl
+first-letter:font-bold first-line:uppercase first-line:tracking-widest"
 >
   {content}
 </p>
@@ -52,7 +52,7 @@ first-letter:mr-3 first-letter:float-left"
 <div>
   <button
     id="btn"
-    class="p-4 mt-4 mb-4 rounded-xl"
+    class="mt-4 mb-4 rounded-xl p-4"
     style="background: {bgColor}; color: {textColor}"
     on:click={onClick}>Click Me!</button
   >

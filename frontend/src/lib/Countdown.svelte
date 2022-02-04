@@ -1,7 +1,6 @@
 <script>
-
 </script>
 
-<span class="font-mono text-6xl countdown">
-  <span style="--value:60;"></span>
+<span class="countdown font-mono text-6xl">
+  <span style="--value:60;" />
 </span>

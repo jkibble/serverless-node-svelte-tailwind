@@ -15,7 +15,7 @@
   <ul id="tabs" class="flex w-full pt-2 pb-5 text-center">
     {#each router.routeList as tab}
       <li
-        class="py-2 w-full border border-b-2 border-gray-200 dark:border-gray-700
+        class="w-full border border-b-2 border-gray-200 py-2 dark:border-gray-700
         {selected === tab ? 'border-b-blue-400' : ''}"
       >
         <button role="tab" class="w-full" data-href="#{tab.route}"
@@ -25,11 +25,7 @@
     {/each}
   </ul>
   <!-- Tab Contents -->
-  <div aria-live="polite" class="overflow-x-none h-full p-4 rounded-md">
-    {#key selected}
-      <div in:fly={{ x: 50 }}>
-        <svelte:component this={selected.component} {...selected.params} />
-      </div>
-    {/key}
+  <div aria-live="polite" class="overflow-x-none h-full rounded-md p-4">
+    <svelte:component this={selected.component} {...selected.params} />
   </div>
 </div>

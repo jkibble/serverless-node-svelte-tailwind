@@ -31,12 +31,12 @@
   };
 </script>
 
-<div class="w-1/2 mt-4 rounded">
+<div class="mt-4 w-1/2 rounded">
   <!-- Tabs -->
   <ul id="tabs" class="inline-flex w-full px-1 pt-2 pb-5">
     {#each tabs as tab}
       <li
-        class="px-4 py-2 font-semibold rounded-t opacity-50 
+        class="rounded-t px-4 py-2 font-semibold opacity-50 
         {selected == tab.id ? 'border-b-4 border-blue-400' : ''}"
       >
         <button role="tab" id={tab.id} on:click={() => selectTab(tab.id)}
@@ -47,7 +47,7 @@
   </ul>
 
   <!-- Tab Contents -->
-  <div class="border border-gray-500 overflow-x-auto h-full p-2">
+  <div class="h-full overflow-x-auto border border-gray-500 p-2">
     <svelte:component this={component} />
   </div>
 </div>

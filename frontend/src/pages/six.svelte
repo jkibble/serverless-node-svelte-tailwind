@@ -26,7 +26,7 @@
 
 <h2>Different Input Components</h2>
 
-<div class="grid gap-3 xl:grid-cols-2 sm:grid-cols-1">
+<div class="grid gap-3 sm:grid-cols-1 xl:grid-cols-2">
   <form
     action="/post"
     method="POST"
