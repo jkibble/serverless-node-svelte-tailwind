@@ -74,7 +74,12 @@ module.exports.api = async (event, context) => {
     page = event["pathParameters"]["path"];
   }
 
-  const user = jwt.verify(cookies.token, "key");
+  if ("token" in cookies) {
+    const user = jwt.verify(cookies.token, "key");
+  } else {
+    const user = { locale: "en" };
+  }
+
   const locale = user.locale || "en";
 
   if (fs.existsSync(`locales/${locale}/${page}.json`)) {
@@ -115,6 +120,8 @@ module.exports.language = async (event, context) => {
 }
 
 module.exports.table = async (event, context) => {
+  await new Promise(resolve => setTimeout(resolve, 1000)); // testing 1 second delay
+
   const lorem = new LoremIpsum({
     sentencesPerParagraph: {
       max: 8,
